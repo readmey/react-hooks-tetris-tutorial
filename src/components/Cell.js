@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { TETROMINOS } from "../helpers/tetrominos";
 
-export const StyledCell = styled.div`
+const StyledCell = styled.div`
   background: ${props =>
     props.bgImage
       ? `url(${props.bgImage}) #000000`

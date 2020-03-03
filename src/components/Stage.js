@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Cell from "./Cell";
 
-export const StyledStage = styled.div`
+const StyledStage = styled.div`
   display: grid;
   grid-template-rows: repeat(
     ${props => props.height},

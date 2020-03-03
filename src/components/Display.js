@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const StyledDisplay = styled.div`
+const StyledDisplay = styled.div`
   box-sizing: border-box;
   margin: 0 0 20px 0;
   padding: 20px;
