@@ -14,6 +14,7 @@ const StyledButton = styled.button`
   font-family: Pixel, Arial, sans-serif;
   outline: none;
   cursor: pointer;
+  margin-bottom: 1.5rem;
 `;
 
 const CustomButton = ({ children, callback }) => (
