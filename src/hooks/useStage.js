@@ -3,6 +3,7 @@ import { createStage } from "../helpers/gameHelpers";
 
 export const useStage = (player, resetPlayer) => {
   const [stage, setStage] = useState(createStage());
+  const [merged, setMerged] = useState(false);
   const [rowsCleared, setRowsCleared] = useState(0);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export const useStage = (player, resetPlayer) => {
       );
 
       // Then draw the tetromino
+
       player.tetromino.forEach((row, y) => {
         row.forEach((value, x) => {
           if (value !== 0) {
@@ -37,15 +39,18 @@ export const useStage = (player, resetPlayer) => {
       });
       // Then check if we got some score if collided
       if (player.collided) {
+        setMerged(true);
         resetPlayer();
+
         return sweepRows(newStage);
       }
+
       return newStage;
     };
 
-    // Here are the updates
     setStage(prev => updateStage(prev));
   }, [
+    merged,
     player.collided,
     player.pos.x,
     player.pos.y,
@@ -53,5 +58,5 @@ export const useStage = (player, resetPlayer) => {
     resetPlayer
   ]);
 
-  return [stage, setStage, rowsCleared];
+  return [stage, setStage, rowsCleared, merged, setMerged];
 };

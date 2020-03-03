@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Stage from "../components/Stage";
 import Display from "../components/Display";
 import CustomButton from "../components/CustomButton";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 // Import Styles
 import { StyledTetrisWrapper, StyledTetris } from "./StyledTetris";
@@ -17,35 +18,59 @@ import { useGameStatus } from "../hooks/useGameStatus";
 
 // Import Audio
 import TetrisAudio from "../audio/Tetris.mp3";
+import TetrisDrop from "../audio/TetrisDrop.wav";
+import TetrisGameover from "../audio/TetrisGameover.wav";
 
 const Tetris = () => {
   const [dropTime, setDropTime] = useState(null);
   const [gameOver, setGameOver] = useState(false);
   const [gameStart, setGameStart] = useState(false);
+  const [gamePaused, setGamePaused] = useState(false);
 
   const [player, updatePlayerPos, resetPlayer, rotatePlayer] = usePlayer();
-  const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
+  const [stage, setStage, rowsCleared, merged, setMerged] = useStage(
+    player,
+    resetPlayer
+  );
   const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(
     rowsCleared
   );
 
+  const audioTetrisDropRef = React.createRef();
+
+  const calcDropTime = 1000 / (level + 1) + 200;
+
   const startGame = () => {
     // Reset all
+    resetGame();
     setStage(createStage());
-    setDropTime(1000 / (level + 1) + 200);
+    setDropTime(calcDropTime);
+    setGameStart(true);
+  };
+
+  const resetGame = () => {
     resetPlayer();
     setScore(0);
     setRows(0);
     setLevel(0);
     setGameOver(false);
-    setGameStart(true);
+  };
+
+  const pauseGame = () => {
+    if (dropTime) {
+      setDropTime(null);
+      setGamePaused(true);
+    } else {
+      setDropTime(calcDropTime);
+      setGamePaused(false);
+    }
   };
 
   const drop = () => {
     // increase level and speed if 10 rows cleared
     if (rows > (level + 1) * 10) {
       setLevel(prev => prev + 1);
-      setDropTime(1000 / (level + 1) + 200);
+      setDropTime(calcDropTime);
     }
 
     if (!checkCollision(player, stage, { x: 0, y: 1 })) {
@@ -57,6 +82,10 @@ const Tetris = () => {
         setDropTime(null);
       }
       updatePlayerPos({ x: 0, y: 0, collided: true });
+    }
+    if (merged && audioTetrisDropRef.current) {
+      audioTetrisDropRef.current.play();
+      setMerged(false);
     }
   };
 
@@ -74,13 +103,13 @@ const Tetris = () => {
   const keyUp = ({ keyCode }) => {
     if (!gameOver) {
       if (keyCode === 40) {
-        setDropTime(1000 / (level + 1) + 200);
+        setDropTime(calcDropTime);
       }
     }
   };
 
   const move = ({ keyCode }) => {
-    if (!gameOver) {
+    if (!gameOver && !gamePaused) {
       if (keyCode === 37) {
         movePlayer(-1);
       } else if (keyCode === 39) {
@@ -98,36 +127,54 @@ const Tetris = () => {
   }, dropTime);
 
   return (
-    <StyledTetrisWrapper
-      role="button"
-      tabIndex="0"
-      onKeyDown={e => move(e)}
-      onKeyUp={keyUp}
-    >
-      <StyledTetris>
-        <Stage stage={stage} />
-        <aside>
-          {gameOver ? (
-            <Display gameOver={gameOver} text="Game Over" />
-          ) : (
-            <div>
-              <Display text={`Score: ${score}`} />
-              <Display text={`Rows: ${rows}`} />
-              <Display text={`Level: ${level}`} />
-            </div>
-          )}
-          <CustomButton callback={startGame}>
-            {!gameStart ? "Start the Game" : "Restart Game"}
-          </CustomButton>
-        </aside>
-        {gameStart ? (
-          <audio loop autoPlay>
-            <source src={TetrisAudio} type="audio/mpeg" />
-            Your browser does not support the audio element.
-          </audio>
-        ) : null}
-      </StyledTetris>
-    </StyledTetrisWrapper>
+    <ErrorBoundary>
+      <StyledTetrisWrapper
+        role="button"
+        tabIndex="0"
+        onKeyDown={e => move(e)}
+        onKeyUp={keyUp}
+      >
+        <StyledTetris>
+          <Stage stage={stage} />
+          <aside>
+            {gameOver ? (
+              <React.Fragment>
+                <Display gameOver={gameOver} text="Game Over" />
+                <audio autoPlay>
+                  <source src={TetrisGameover} type="audio/wav" />
+                  Your browser does not support the audio element.
+                </audio>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <Display text={`Score: ${score}`} />
+                <Display text={`Rows: ${rows}`} />
+                <Display text={`Level: ${level}`} />
+              </React.Fragment>
+            )}
+            {gameStart ? (
+              <React.Fragment>
+                <audio loop autoPlay muted={gamePaused}>
+                  <source src={TetrisAudio} type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <audio ref={audioTetrisDropRef}>
+                  <source src={TetrisDrop} type="audio/wav" />
+                  Your browser does not support the audio element.
+                </audio>
+                <CustomButton callback={pauseGame}>
+                  {!gamePaused ? "Pause the Game" : "Continue"}
+                </CustomButton>
+              </React.Fragment>
+            ) : (
+              <CustomButton callback={startGame} disable={gameStart && true}>
+                Start the Game
+              </CustomButton>
+            )}
+          </aside>
+        </StyledTetris>
+      </StyledTetrisWrapper>
+    </ErrorBoundary>
   );
 };
 
