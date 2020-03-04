@@ -126,6 +126,15 @@ const Tetris = () => {
     drop();
   }, dropTime);
 
+  const setButtonText = () => {
+    let buttonTxt = !gameStart
+      ? "Start the Game"
+      : gameStart && !gamePaused
+      ? "Pause the Game"
+      : "Continue";
+    return buttonTxt;
+  };
+
   return (
     <ErrorBoundary>
       <StyledTetrisWrapper
@@ -162,15 +171,11 @@ const Tetris = () => {
                   <source src={TetrisDrop} type="audio/wav" />
                   Your browser does not support the audio element.
                 </audio>
-                <CustomButton callback={pauseGame}>
-                  {!gamePaused ? "Pause the Game" : "Continue"}
-                </CustomButton>
               </React.Fragment>
-            ) : (
-              <CustomButton callback={startGame} disable={gameStart && true}>
-                Start the Game
-              </CustomButton>
-            )}
+            ) : null}
+            <CustomButton callback={gameStart ? pauseGame : startGame}>
+              {setButtonText()}
+            </CustomButton>
           </aside>
         </StyledTetris>
       </StyledTetrisWrapper>
