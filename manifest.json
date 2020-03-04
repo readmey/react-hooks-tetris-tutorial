@@ -3,7 +3,7 @@
   "name": "Tetris React Application with Hooks",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "/favicon.ico",
       "sizes": "32x32 16x16",
       "type": "image/x-icon"
     },
