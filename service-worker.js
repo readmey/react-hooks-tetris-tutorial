@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/readmey/react-hooks-tetris-tutorial.git/precache-manifest.1d08f66dab9b9e0c32b0e3ed1cb7c715.js"
+  "/readmey/react-hooks-tetris-tutorial/precache-manifest.d7b77df8b5cc95f0e2f7099dd80fbb37.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -33,7 +33,7 @@ workbox.core.clientsClaim();
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/readmey/react-hooks-tetris-tutorial.git/index.html"), {
+workbox.routing.registerNavigationRoute(workbox.precaching.getCacheKeyForURL("/readmey/react-hooks-tetris-tutorial/index.html"), {
   
   blacklist: [/^\/_/,/\/[^\/?]+\.[^\/]+$/],
 });

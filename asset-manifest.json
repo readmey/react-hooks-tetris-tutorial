@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/readmey/react-hooks-tetris-tutorial.git/static/css/main.c698b34d.chunk.css",
-    "main.js": "/readmey/react-hooks-tetris-tutorial.git/static/js/main.199b9e42.chunk.js",
-    "main.js.map": "/readmey/react-hooks-tetris-tutorial.git/static/js/main.199b9e42.chunk.js.map",
-    "runtime-main.js": "/readmey/react-hooks-tetris-tutorial.git/static/js/runtime-main.bba3e4a9.js",
-    "runtime-main.js.map": "/readmey/react-hooks-tetris-tutorial.git/static/js/runtime-main.bba3e4a9.js.map",
-    "static/js/2.44104969.chunk.js": "/readmey/react-hooks-tetris-tutorial.git/static/js/2.44104969.chunk.js",
-    "static/js/2.44104969.chunk.js.map": "/readmey/react-hooks-tetris-tutorial.git/static/js/2.44104969.chunk.js.map",
-    "index.html": "/readmey/react-hooks-tetris-tutorial.git/index.html",
-    "precache-manifest.1d08f66dab9b9e0c32b0e3ed1cb7c715.js": "/readmey/react-hooks-tetris-tutorial.git/precache-manifest.1d08f66dab9b9e0c32b0e3ed1cb7c715.js",
-    "service-worker.js": "/readmey/react-hooks-tetris-tutorial.git/service-worker.js",
-    "static/css/main.c698b34d.chunk.css.map": "/readmey/react-hooks-tetris-tutorial.git/static/css/main.c698b34d.chunk.css.map",
-    "static/js/2.44104969.chunk.js.LICENSE.txt": "/readmey/react-hooks-tetris-tutorial.git/static/js/2.44104969.chunk.js.LICENSE.txt",
-    "static/media/404-robot-icon.svg": "/readmey/react-hooks-tetris-tutorial.git/static/media/404-robot-icon.03ce106b.svg",
-    "static/media/index.css": "/readmey/react-hooks-tetris-tutorial.git/static/media/Pixel.e2897552.woff",
-    "static/media/Tetris.mp3": "/readmey/react-hooks-tetris-tutorial.git/static/media/Tetris.4ae866dc.mp3",
-    "static/media/TetrisDrop.wav": "/readmey/react-hooks-tetris-tutorial.git/static/media/TetrisDrop.9bc0c73c.wav",
-    "static/media/TetrisGameover.wav": "/readmey/react-hooks-tetris-tutorial.git/static/media/TetrisGameover.7e0750ef.wav",
-    "static/media/game-bg.svg": "/readmey/react-hooks-tetris-tutorial.git/static/media/game-bg.df5e0038.svg"
+    "main.css": "/readmey/react-hooks-tetris-tutorial/static/css/main.7d6eccf4.chunk.css",
+    "main.js": "/readmey/react-hooks-tetris-tutorial/static/js/main.01b8cd9a.chunk.js",
+    "main.js.map": "/readmey/react-hooks-tetris-tutorial/static/js/main.01b8cd9a.chunk.js.map",
+    "runtime-main.js": "/readmey/react-hooks-tetris-tutorial/static/js/runtime-main.6f3b79b7.js",
+    "runtime-main.js.map": "/readmey/react-hooks-tetris-tutorial/static/js/runtime-main.6f3b79b7.js.map",
+    "static/js/2.50425a3a.chunk.js": "/readmey/react-hooks-tetris-tutorial/static/js/2.50425a3a.chunk.js",
+    "static/js/2.50425a3a.chunk.js.map": "/readmey/react-hooks-tetris-tutorial/static/js/2.50425a3a.chunk.js.map",
+    "index.html": "/readmey/react-hooks-tetris-tutorial/index.html",
+    "precache-manifest.d7b77df8b5cc95f0e2f7099dd80fbb37.js": "/readmey/react-hooks-tetris-tutorial/precache-manifest.d7b77df8b5cc95f0e2f7099dd80fbb37.js",
+    "service-worker.js": "/readmey/react-hooks-tetris-tutorial/service-worker.js",
+    "static/css/main.7d6eccf4.chunk.css.map": "/readmey/react-hooks-tetris-tutorial/static/css/main.7d6eccf4.chunk.css.map",
+    "static/js/2.50425a3a.chunk.js.LICENSE.txt": "/readmey/react-hooks-tetris-tutorial/static/js/2.50425a3a.chunk.js.LICENSE.txt",
+    "static/media/404-robot-icon.svg": "/readmey/react-hooks-tetris-tutorial/static/media/404-robot-icon.03ce106b.svg",
+    "static/media/index.css": "/readmey/react-hooks-tetris-tutorial/static/media/Pixel.e2897552.woff",
+    "static/media/Tetris.mp3": "/readmey/react-hooks-tetris-tutorial/static/media/Tetris.4ae866dc.mp3",
+    "static/media/TetrisDrop.wav": "/readmey/react-hooks-tetris-tutorial/static/media/TetrisDrop.9bc0c73c.wav",
+    "static/media/TetrisGameover.wav": "/readmey/react-hooks-tetris-tutorial/static/media/TetrisGameover.7e0750ef.wav",
+    "static/media/game-bg.svg": "/readmey/react-hooks-tetris-tutorial/static/media/game-bg.df5e0038.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.bba3e4a9.js",
-    "static/js/2.44104969.chunk.js",
-    "static/css/main.c698b34d.chunk.css",
-    "static/js/main.199b9e42.chunk.js"
+    "static/js/runtime-main.6f3b79b7.js",
+    "static/js/2.50425a3a.chunk.js",
+    "static/css/main.7d6eccf4.chunk.css",
+    "static/js/main.01b8cd9a.chunk.js"
   ]
 }
