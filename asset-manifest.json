@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.f8885b5f.chunk.css",
-    "main.js": "/static/js/main.b08293ed.chunk.js",
-    "main.js.map": "/static/js/main.b08293ed.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.a321e607.js",
-    "runtime-main.js.map": "/static/js/runtime-main.a321e607.js.map",
-    "static/js/2.0067ee8c.chunk.js": "/static/js/2.0067ee8c.chunk.js",
-    "static/js/2.0067ee8c.chunk.js.map": "/static/js/2.0067ee8c.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.3ce40ba87fea73b72571525d6cbe42ab.js": "/precache-manifest.3ce40ba87fea73b72571525d6cbe42ab.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.f8885b5f.chunk.css.map": "/static/css/main.f8885b5f.chunk.css.map",
-    "static/js/2.0067ee8c.chunk.js.LICENSE.txt": "/static/js/2.0067ee8c.chunk.js.LICENSE.txt",
-    "static/media/404-robot-icon.svg": "/static/media/404-robot-icon.03ce106b.svg",
-    "static/media/index.css": "/static/media/Pixel.e2897552.woff",
-    "static/media/Tetris.mp3": "/static/media/Tetris.4ae866dc.mp3",
-    "static/media/TetrisDrop.wav": "/static/media/TetrisDrop.9bc0c73c.wav",
-    "static/media/TetrisGameover.wav": "/static/media/TetrisGameover.7e0750ef.wav",
-    "static/media/game-bg.svg": "/static/media/game-bg.df5e0038.svg"
+    "main.css": "/react-hooks-tetris-tutorial/static/css/main.8d462d85.chunk.css",
+    "main.js": "/react-hooks-tetris-tutorial/static/js/main.781ace3e.chunk.js",
+    "main.js.map": "/react-hooks-tetris-tutorial/static/js/main.781ace3e.chunk.js.map",
+    "runtime-main.js": "/react-hooks-tetris-tutorial/static/js/runtime-main.2896c87e.js",
+    "runtime-main.js.map": "/react-hooks-tetris-tutorial/static/js/runtime-main.2896c87e.js.map",
+    "static/js/2.5c2ad9e8.chunk.js": "/react-hooks-tetris-tutorial/static/js/2.5c2ad9e8.chunk.js",
+    "static/js/2.5c2ad9e8.chunk.js.map": "/react-hooks-tetris-tutorial/static/js/2.5c2ad9e8.chunk.js.map",
+    "index.html": "/react-hooks-tetris-tutorial/index.html",
+    "precache-manifest.72123aff0297cbe1808241b38dc10395.js": "/react-hooks-tetris-tutorial/precache-manifest.72123aff0297cbe1808241b38dc10395.js",
+    "service-worker.js": "/react-hooks-tetris-tutorial/service-worker.js",
+    "static/css/main.8d462d85.chunk.css.map": "/react-hooks-tetris-tutorial/static/css/main.8d462d85.chunk.css.map",
+    "static/js/2.5c2ad9e8.chunk.js.LICENSE.txt": "/react-hooks-tetris-tutorial/static/js/2.5c2ad9e8.chunk.js.LICENSE.txt",
+    "static/media/404-robot-icon.svg": "/react-hooks-tetris-tutorial/static/media/404-robot-icon.03ce106b.svg",
+    "static/media/index.css": "/react-hooks-tetris-tutorial/static/media/Pixel.e2897552.woff",
+    "static/media/Tetris.mp3": "/react-hooks-tetris-tutorial/static/media/Tetris.4ae866dc.mp3",
+    "static/media/TetrisDrop.wav": "/react-hooks-tetris-tutorial/static/media/TetrisDrop.9bc0c73c.wav",
+    "static/media/TetrisGameover.wav": "/react-hooks-tetris-tutorial/static/media/TetrisGameover.7e0750ef.wav",
+    "static/media/game-bg.svg": "/react-hooks-tetris-tutorial/static/media/game-bg.df5e0038.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.a321e607.js",
-    "static/js/2.0067ee8c.chunk.js",
-    "static/css/main.f8885b5f.chunk.css",
-    "static/js/main.b08293ed.chunk.js"
+    "static/js/runtime-main.2896c87e.js",
+    "static/js/2.5c2ad9e8.chunk.js",
+    "static/css/main.8d462d85.chunk.css",
+    "static/js/main.781ace3e.chunk.js"
   ]
 }
