@@ -10,7 +10,7 @@ Just use this tutorial as reference from [GameDev Tutorial] (https://www.youtube
 - Add own Tetrominos stylings (inspired by Lego)
 - 
 
-## DEMO LINK: https://readmey.github.io/react-hooks-tetris-tutorial/
+### DEMO LINK: https://readmey.github.io/react-hooks-tetris-tutorial/
 
 Robot Icon made by (https://www.flaticon.com/authors/smashicons)[Smashicons] from (https://www.flaticon.com/)[www.flaticon.com]
 
