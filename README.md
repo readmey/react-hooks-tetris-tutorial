@@ -12,7 +12,7 @@ Just use this tutorial as reference from [GameDev Tutorial] (https://www.youtube
 
 ### DEMO LINK: https://readmey.github.io/react-hooks-tetris-tutorial/
 
-Robot Icon made by (https://www.flaticon.com/authors/smashicons)[Smashicons] from (https://www.flaticon.com/)[www.flaticon.com]
+Robot Icon made by [Smashicons](https://www.flaticon.com/authors/smashicons) from [www.flaticon.com](https://www.flaticon.com/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 
