@@ -16,8 +16,10 @@ const StyledButton = styled.button`
   cursor: pointer;
   margin-bottom: 1.5rem;
   @media (max-width: 992px) {
-    padding: 1rem 0.25rem;
+    padding: 0.5rem 0.25rem;
     font-size: 0.5rem;
+    max-width: 85px;
+    height: 40px;
   }
 `;
 

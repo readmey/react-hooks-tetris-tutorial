@@ -9,9 +9,6 @@ export const StyledTetrisWrapper = styled.div`
   background: url(${bgImage}) #191919;
   background-size: cover;
   overflow: hidden;
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
 `;
 
 export const StyledTetris = styled.div`
@@ -32,11 +29,10 @@ export const StyledTetris = styled.div`
     margin: 0 auto;
 
     @media (max-width: 992px) {
-      max-width: 100%;
+      max-width: 90vw;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
-      max-width: 250px;
     }
   }
 `;
