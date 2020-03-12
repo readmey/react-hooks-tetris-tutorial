@@ -5,9 +5,14 @@ import Stage from "../components/Stage";
 import Display from "../components/Display";
 import CustomButton from "../components/CustomButton";
 import ErrorBoundary from "../components/ErrorBoundary";
+import KeyboardMobile from "../components/KeyboardMobile";
 
 // Import Styles
-import { StyledTetrisWrapper, StyledTetris } from "./StyledTetris";
+import {
+  StyledTetrisWrapper,
+  StyledTetris,
+  StyledTetrisMobile
+} from "./StyledTetris";
 
 // Import Hooks
 import { createStage, checkCollision } from "../helpers/gameHelpers";
@@ -26,6 +31,8 @@ const Tetris = () => {
   const [gameOver, setGameOver] = useState(false);
   const [gameStart, setGameStart] = useState(false);
   const [gamePaused, setGamePaused] = useState(false);
+  const [isMouseDown, setMouseDown] = useState(false);
+  const [currentKeyCode, setCurrentKeyCode] = useState(0);
 
   const [player, updatePlayerPos, resetPlayer, rotatePlayer] = usePlayer();
   const [stage, setStage, rowsCleared, merged, setMerged] = useStage(
@@ -101,6 +108,8 @@ const Tetris = () => {
   };
 
   const keyUp = ({ keyCode }) => {
+    setMouseDown(false);
+
     if (!gameOver) {
       if (keyCode === 40) {
         setDropTime(calcDropTime);
@@ -109,7 +118,8 @@ const Tetris = () => {
   };
 
   const move = ({ keyCode }) => {
-    if (!gameOver && !gamePaused) {
+    // if (!gameOver && !gamePaused) {
+    if (!gameOver) {
       if (keyCode === 37) {
         movePlayer(-1);
       } else if (keyCode === 39) {
@@ -122,15 +132,21 @@ const Tetris = () => {
     }
   };
 
+  const onMouseDown = () => {
+    move(currentKeyCode);
+  };
+
+  useInterval(onMouseDown, isMouseDown ? 100 : null);
+
   useInterval(() => {
     drop();
   }, dropTime);
 
   const setButtonText = () => {
     let buttonTxt = !gameStart
-      ? "Start the Game"
+      ? "Start Game"
       : gameStart && !gamePaused
-      ? "Pause the Game"
+      ? "Pause Game"
       : "Continue";
     return buttonTxt;
   };
@@ -138,14 +154,20 @@ const Tetris = () => {
   return (
     <ErrorBoundary>
       <StyledTetrisWrapper
-        role="button"
         tabIndex="0"
         onKeyDown={e => move(e)}
         onKeyUp={keyUp}
       >
         <StyledTetris>
-          <Stage stage={stage} />
           <aside>
+            <iframe
+              src="https://ghbtns.com/github-btn.html?user=readmey&type=follow"
+              title="follow-button"
+              frameBorder="0"
+              scrolling="0"
+              height="30px"
+            ></iframe>
+
             {gameOver ? (
               <React.Fragment>
                 <Display gameOver={gameOver} text="Game Over" />
@@ -159,6 +181,9 @@ const Tetris = () => {
                 <Display text={`Score: ${score}`} />
                 <Display text={`Rows: ${rows}`} />
                 <Display text={`Level: ${level}`} />
+                <CustomButton callback={gameStart ? pauseGame : startGame}>
+                  {setButtonText()}
+                </CustomButton>
               </React.Fragment>
             )}
             {gameStart ? (
@@ -173,11 +198,18 @@ const Tetris = () => {
                 </audio>
               </React.Fragment>
             ) : null}
-            <CustomButton callback={gameStart ? pauseGame : startGame}>
-              {setButtonText()}
-            </CustomButton>
           </aside>
+          <Stage stage={stage} />
         </StyledTetris>
+        <StyledTetrisMobile>
+          {window.matchMedia("(max-width: 768px)") ? (
+            <KeyboardMobile
+              setMouseDown={setMouseDown}
+              setCurrentKeyCode={setCurrentKeyCode}
+              onMouseUp={keyUp}
+            />
+          ) : null}
+        </StyledTetrisMobile>
       </StyledTetrisWrapper>
     </ErrorBoundary>
   );

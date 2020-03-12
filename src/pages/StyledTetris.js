@@ -9,19 +9,43 @@ export const StyledTetrisWrapper = styled.div`
   background: url(${bgImage}) #191919;
   background-size: cover;
   overflow: hidden;
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 export const StyledTetris = styled.div`
-  display: flex;
-  align-item: flex-start;
-  padding: 40px;
-  margin: 0 auto;
-  max-width: 700px;
+  margin: 2rem auto 1rem;
+  max-width: 580px;
+
+  @media (min-width: 992px) {
+    display: flex;
+    align-item: flex-start;
+    flex-direction: row-reverse;
+  }
 
   aside {
     width: 100%;
     max-width: 200px;
     display: block;
     padding: 0 20px;
+    margin: 0 auto;
+
+    @media (max-width: 992px) {
+      max-width: 100%;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 250px;
+    }
+  }
+`;
+
+export const StyledTetrisMobile = styled.div`
+  margin: 0 auto;
+  max-width: 545px;
+
+  @media (max-width: 992px) {
+    max-width: 70vw;
   }
 `;

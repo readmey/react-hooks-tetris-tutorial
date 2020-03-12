@@ -15,6 +15,10 @@ const StyledButton = styled.button`
   outline: none;
   cursor: pointer;
   margin-bottom: 1.5rem;
+  @media (max-width: 992px) {
+    padding: 1rem 0.25rem;
+    font-size: 0.5rem;
+  }
 `;
 
 const CustomButton = ({ children, callback }) => (
