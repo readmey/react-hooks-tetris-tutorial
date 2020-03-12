@@ -10,8 +10,9 @@ Just use this tutorial as reference from [GameDev Tutorial] (https://www.youtube
 - Add own Tetrominos stylings (inspired by Lego)
 - 
 
-
-Robot Icon made by (https://www.flaticon.com/authors/smashicons)[Smashicons] from (https://www.flaticon.com/)[www.flaticon.com]
+Credits:
+- Robot Icon made by (https://www.flaticon.com/authors/smashicons)[Smashicons] from (https://www.flaticon.com/)[www.flaticon.com]
+- Keyboard Icon made by (https://www.flaticon.com/authors/pixelmeetup)[Pixelmeetup] from (https://www.flaticon.com/)[www.flaticon.com]
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
 

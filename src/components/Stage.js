@@ -14,6 +14,15 @@ const StyledStage = styled.div`
   width: 100%;
   max-width: 25vw;
   background: #4f4f4f;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 70vw;
+    grid-template-rows: repeat(
+      ${props => props.height},
+      calc(70vw / ${props => props.width})
+    );
+  }
 `;
 
 const Stage = ({ stage }) => (
