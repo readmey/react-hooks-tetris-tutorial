@@ -29,7 +29,7 @@ export const StyledTetris = styled.div`
     margin: 0 auto;
 
     @media (max-width: 992px) {
-      max-width: 90vw;
+      max-width: 95vw;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
