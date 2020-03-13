@@ -130,16 +130,6 @@ const Tetris = () => {
     }
   };
 
-  const movePlayerOnTouch = () => {
-    move(currentKeyCode);
-  };
-
-  useInterval(movePlayerOnTouch, isTouchStart ? 100 : null);
-
-  useInterval(() => {
-    drop();
-  }, dropTime);
-
   const setButtonText = () => {
     let buttonTxt = !gameStart
       ? "Start Game"
@@ -148,6 +138,18 @@ const Tetris = () => {
       : "Continue";
     return buttonTxt;
   };
+
+  window.oncontextmenu = event => {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  };
+
+  useInterval(() => move(currentKeyCode), isTouchStart ? 100 : null);
+
+  useInterval(() => {
+    drop();
+  }, dropTime);
 
   return (
     <ErrorBoundary>
@@ -195,7 +197,7 @@ const Tetris = () => {
           <KeyboardMobile
             setTouchStart={setTouchStart}
             setCurrentKeyCode={setCurrentKeyCode}
-            onMouseUp={keyUp}
+            onTouchRelease={keyUp}
           />
         </StyledTetrisMobile>
       </StyledTetrisWrapper>
