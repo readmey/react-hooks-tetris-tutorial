@@ -30,7 +30,7 @@ export const StyledTetris = styled.div`
     justify-content: center;
 
     @media (max-width: 992px) {
-      max-width: 95vw;
+      max-width: 100vw;
       padding: 0;
       display: flex;
       flex-wrap: wrap;
