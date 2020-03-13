@@ -1,75 +1,56 @@
 import React from "react";
 import styled from "styled-components";
 
-import KeyboardLeft from "../images/keyCode37.svg";
-import KeyboardRight from "../images/keyCode39.svg";
-import KeyboardUp from "../images/keyCode38.svg";
-import KeyboardDown from "../images/keyCode40.svg";
-
-const StyledKeyboardWrapper = styled.div`
-  max-width: 150px;
-  margin-bottom: 1rem;
-  border: 1px solid white;
-  padding: 0.5rem;
-  background: black;
-  border-radius: 10px;
-`;
+import KeyboardLeft from "../images/keyLeft.svg";
+import KeyboardRight from "../images/keyRight.svg";
+import KeyboardUp from "../images/keyUp.svg";
+import KeyboardDown from "../images/keyDown.svg";
 
 const StyledKeyGroup = styled.div`
-  display: flex;
-  justify-content: space-between;
+  text-align: center;
+`;
+
+const StyledKey = styled.img`
+  margin-left: 10px;
+  width: 45px;
 
   &:first-child {
-    text-align: center;
-    display: block;
+    margin-left: 0;
   }
 `;
 
-const StyledKey = styled.img``;
+const KeyboardMobile = ({ setCurrentKeyCode, setTouchStart }) => {
+  const setMove = keyCode => {
+    setTouchStart(true);
+    setCurrentKeyCode({ keyCode: keyCode });
+  };
 
-const KeyboardMobile = ({ setCurrentKeyCode, setMouseDown }) => (
-  <StyledKeyboardWrapper>
-    <StyledKeyGroup className="group__keys">
-      <StyledKey
-        src={KeyboardUp}
-        onTouchStart={() => {
-          setCurrentKeyCode({ keyCode: 38 });
-          setMouseDown(true);
-        }}
-        onTouchEnd={() => setMouseDown(false)}
-        width="45px"
-      />
-    </StyledKeyGroup>
-    <StyledKeyGroup className="group__keys">
-      <StyledKey
-        src={KeyboardLeft}
-        onTouchStart={() => {
-          setCurrentKeyCode({ keyCode: 37 });
-          setMouseDown(true);
-        }}
-        onTouchEnd={() => setMouseDown(false)}
-        width="45px"
-      />
-      <StyledKey
-        src={KeyboardDown}
-        onTouchStart={() => {
-          setCurrentKeyCode({ keyCode: 40 });
-          setMouseDown(true);
-        }}
-        onTouchEnd={() => setMouseDown(false)}
-        width="45px"
-      />
-      <StyledKey
-        src={KeyboardRight}
-        onTouchStart={() => {
-          setCurrentKeyCode({ keyCode: 39 });
-          setMouseDown(true);
-        }}
-        onMouseUp={() => setMouseDown(false)}
-        width="45px"
-      />
-    </StyledKeyGroup>
-  </StyledKeyboardWrapper>
-);
+  return (
+    <div className="keyboard__wrapper">
+      <StyledKeyGroup className="keyboard__keys">
+        <StyledKey
+          src={KeyboardLeft}
+          onTouchStart={() => setMove(37)}
+          onTouchEnd={() => setTouchStart(false)}
+        />
+        <StyledKey
+          src={KeyboardUp}
+          onTouchStart={() => setMove(38)}
+          onTouchEnd={() => setTouchStart(false)}
+        />
+        <StyledKey
+          src={KeyboardDown}
+          onTouchStart={() => setMove(40)}
+          onTouchEnd={() => setTouchStart(false)}
+        />
+        <StyledKey
+          src={KeyboardRight}
+          onTouchStart={() => setMove(39)}
+          onMouseUp={() => setTouchStart(false)}
+        />
+      </StyledKeyGroup>
+    </div>
+  );
+};
 
 export default KeyboardMobile;
