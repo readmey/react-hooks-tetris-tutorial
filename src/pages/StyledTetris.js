@@ -27,6 +27,7 @@ export const StyledTetris = styled.div`
     display: block;
     padding: 0 20px;
     margin: 0 auto;
+    justify-content: center;
 
     @media (max-width: 992px) {
       max-width: 95vw;
@@ -39,9 +40,10 @@ export const StyledTetris = styled.div`
 
 export const StyledTetrisMobile = styled.div`
   margin: 0 auto;
-  max-width: 545px;
+  max-width: 70vw;
 
-  @media (max-width: 992px) {
-    max-width: 70vw;
+  @media (min-width: 786px) {
+    max-width: 545px;
+    display: none;
   }
 `;

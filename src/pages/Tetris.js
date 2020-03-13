@@ -31,7 +31,7 @@ const Tetris = () => {
   const [gameOver, setGameOver] = useState(false);
   const [gameStart, setGameStart] = useState(false);
   const [gamePaused, setGamePaused] = useState(false);
-  const [isMouseDown, setMouseDown] = useState(false);
+  const [isTouchStart, setTouchStart] = useState(false);
   const [currentKeyCode, setCurrentKeyCode] = useState(0);
 
   const [player, updatePlayerPos, resetPlayer, rotatePlayer] = usePlayer();
@@ -108,8 +108,6 @@ const Tetris = () => {
   };
 
   const keyUp = ({ keyCode }) => {
-    setMouseDown(false);
-
     if (!gameOver) {
       if (keyCode === 40) {
         setDropTime(calcDropTime);
@@ -132,11 +130,11 @@ const Tetris = () => {
     }
   };
 
-  const onMouseDown = () => {
+  const movePlayerOnTouch = () => {
     move(currentKeyCode);
   };
 
-  useInterval(onMouseDown, isMouseDown ? 100 : null);
+  useInterval(movePlayerOnTouch, isTouchStart ? 100 : null);
 
   useInterval(() => {
     drop();
@@ -160,14 +158,6 @@ const Tetris = () => {
       >
         <StyledTetris>
           <aside>
-            <iframe
-              src="https://ghbtns.com/github-btn.html?user=readmey&type=follow"
-              title="follow-button"
-              frameBorder="0"
-              scrolling="0"
-              height="30px"
-            ></iframe>
-
             {gameOver ? (
               <React.Fragment>
                 <Display gameOver={gameOver} text="Game Over" />
@@ -202,13 +192,11 @@ const Tetris = () => {
           <Stage stage={stage} />
         </StyledTetris>
         <StyledTetrisMobile>
-          {window.matchMedia("(max-width: 768px)") ? (
-            <KeyboardMobile
-              setMouseDown={setMouseDown}
-              setCurrentKeyCode={setCurrentKeyCode}
-              onMouseUp={keyUp}
-            />
-          ) : null}
+          <KeyboardMobile
+            setTouchStart={setTouchStart}
+            setCurrentKeyCode={setCurrentKeyCode}
+            onMouseUp={keyUp}
+          />
         </StyledTetrisMobile>
       </StyledTetrisWrapper>
     </ErrorBoundary>
