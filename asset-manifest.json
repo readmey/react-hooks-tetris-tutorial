@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-hooks-tetris-tutorial/static/css/main.aab079bc.chunk.css",
-    "main.js": "/react-hooks-tetris-tutorial/static/js/main.5a893c1d.chunk.js",
-    "main.js.map": "/react-hooks-tetris-tutorial/static/js/main.5a893c1d.chunk.js.map",
+    "main.js": "/react-hooks-tetris-tutorial/static/js/main.4243e592.chunk.js",
+    "main.js.map": "/react-hooks-tetris-tutorial/static/js/main.4243e592.chunk.js.map",
     "runtime-main.js": "/react-hooks-tetris-tutorial/static/js/runtime-main.2896c87e.js",
     "runtime-main.js.map": "/react-hooks-tetris-tutorial/static/js/runtime-main.2896c87e.js.map",
     "static/js/2.5525d1da.chunk.js": "/react-hooks-tetris-tutorial/static/js/2.5525d1da.chunk.js",
     "static/js/2.5525d1da.chunk.js.map": "/react-hooks-tetris-tutorial/static/js/2.5525d1da.chunk.js.map",
     "index.html": "/react-hooks-tetris-tutorial/index.html",
-    "precache-manifest.4165d8a143270304de75a30e00998315.js": "/react-hooks-tetris-tutorial/precache-manifest.4165d8a143270304de75a30e00998315.js",
+    "precache-manifest.0597d8c214d83d70575f134b80699b4c.js": "/react-hooks-tetris-tutorial/precache-manifest.0597d8c214d83d70575f134b80699b4c.js",
     "service-worker.js": "/react-hooks-tetris-tutorial/service-worker.js",
     "static/css/main.aab079bc.chunk.css.map": "/react-hooks-tetris-tutorial/static/css/main.aab079bc.chunk.css.map",
     "static/js/2.5525d1da.chunk.js.LICENSE.txt": "/react-hooks-tetris-tutorial/static/js/2.5525d1da.chunk.js.LICENSE.txt",
@@ -27,6 +27,6 @@
     "static/js/runtime-main.2896c87e.js",
     "static/js/2.5525d1da.chunk.js",
     "static/css/main.aab079bc.chunk.css",
-    "static/js/main.5a893c1d.chunk.js"
+    "static/js/main.4243e592.chunk.js"
   ]
 }
