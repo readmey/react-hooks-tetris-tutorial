@@ -163,6 +163,7 @@ const Tetris = () => {
             {gameOver ? (
               <React.Fragment>
                 <Display gameOver={gameOver} text="Game Over" />
+                <CustomButton callback={startGame}>Start Game</CustomButton>
                 <audio autoPlay>
                   <source src={TetrisGameover} type="audio/wav" />
                   Your browser does not support the audio element.
