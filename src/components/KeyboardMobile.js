@@ -40,8 +40,8 @@ const KeyboardMobile = ({
     const keys = [
       { code: 37, image: Keyboard37 },
       { code: 38, image: Keyboard38 },
-      { code: 39, image: Keyboard39 },
-      { code: 40, image: Keyboard40 }
+      { code: 40, image: Keyboard40 },
+      { code: 39, image: Keyboard39 }
     ];
 
     return keys.map(key => (
