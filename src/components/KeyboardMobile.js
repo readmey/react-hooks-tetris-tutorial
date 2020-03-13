@@ -19,12 +19,21 @@ const StyledKey = styled.img`
   }
 `;
 
-const KeyboardMobile = ({ setCurrentKeyCode, setTouchStart }) => {
+const KeyboardMobile = ({
+  setCurrentKeyCode,
+  setTouchStart,
+  onTouchRelease
+}) => {
   const setMove = (e, keyCode) => {
     e.preventDefault();
-    e.stopPropagation();
     setTouchStart(true);
     setCurrentKeyCode({ keyCode: keyCode });
+  };
+
+  const setDrop = (e, keyCode) => {
+    e.preventDefault();
+    setTouchStart(false);
+    onTouchRelease({ keyCode: keyCode });
   };
 
   return (
@@ -33,22 +42,22 @@ const KeyboardMobile = ({ setCurrentKeyCode, setTouchStart }) => {
         <StyledKey
           src={KeyboardLeft}
           onTouchStart={e => setMove(e, 37)}
-          onTouchEnd={() => setTouchStart(false)}
+          onTouchEnd={e => setDrop(e, 37)}
         />
         <StyledKey
           src={KeyboardUp}
           onTouchStart={e => setMove(e, 38)}
-          onTouchEnd={() => setTouchStart(false)}
+          onTouchEnd={e => setDrop(e, 38)}
         />
         <StyledKey
           src={KeyboardDown}
           onTouchStart={e => setMove(e, 40)}
-          onTouchEnd={() => setTouchStart(false)}
+          onTouchEnd={e => setDrop(e, 40)}
         />
         <StyledKey
           src={KeyboardRight}
           onTouchStart={e => setMove(e, 39)}
-          onMouseUp={() => setTouchStart(false)}
+          onMouseUp={e => setDrop(e, 39)}
         />
       </StyledKeyGroup>
     </div>
