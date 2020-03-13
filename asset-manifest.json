@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-hooks-tetris-tutorial/static/css/main.aab079bc.chunk.css",
-    "main.js": "/react-hooks-tetris-tutorial/static/js/main.4243e592.chunk.js",
-    "main.js.map": "/react-hooks-tetris-tutorial/static/js/main.4243e592.chunk.js.map",
+    "main.css": "/react-hooks-tetris-tutorial/static/css/main.d3ac9262.chunk.css",
+    "main.js": "/react-hooks-tetris-tutorial/static/js/main.8fe1cd50.chunk.js",
+    "main.js.map": "/react-hooks-tetris-tutorial/static/js/main.8fe1cd50.chunk.js.map",
     "runtime-main.js": "/react-hooks-tetris-tutorial/static/js/runtime-main.2896c87e.js",
     "runtime-main.js.map": "/react-hooks-tetris-tutorial/static/js/runtime-main.2896c87e.js.map",
     "static/js/2.5525d1da.chunk.js": "/react-hooks-tetris-tutorial/static/js/2.5525d1da.chunk.js",
     "static/js/2.5525d1da.chunk.js.map": "/react-hooks-tetris-tutorial/static/js/2.5525d1da.chunk.js.map",
     "index.html": "/react-hooks-tetris-tutorial/index.html",
-    "precache-manifest.0597d8c214d83d70575f134b80699b4c.js": "/react-hooks-tetris-tutorial/precache-manifest.0597d8c214d83d70575f134b80699b4c.js",
+    "precache-manifest.c55e7cc00443a9f173e65f7ddad895df.js": "/react-hooks-tetris-tutorial/precache-manifest.c55e7cc00443a9f173e65f7ddad895df.js",
     "service-worker.js": "/react-hooks-tetris-tutorial/service-worker.js",
-    "static/css/main.aab079bc.chunk.css.map": "/react-hooks-tetris-tutorial/static/css/main.aab079bc.chunk.css.map",
+    "static/css/main.d3ac9262.chunk.css.map": "/react-hooks-tetris-tutorial/static/css/main.d3ac9262.chunk.css.map",
     "static/js/2.5525d1da.chunk.js.LICENSE.txt": "/react-hooks-tetris-tutorial/static/js/2.5525d1da.chunk.js.LICENSE.txt",
     "static/media/404-robot-icon.svg": "/react-hooks-tetris-tutorial/static/media/404-robot-icon.03ce106b.svg",
     "static/media/index.css": "/react-hooks-tetris-tutorial/static/media/Pixel.e2897552.woff",
@@ -26,7 +26,7 @@
   "entrypoints": [
     "static/js/runtime-main.2896c87e.js",
     "static/js/2.5525d1da.chunk.js",
-    "static/css/main.aab079bc.chunk.css",
-    "static/js/main.4243e592.chunk.js"
+    "static/css/main.d3ac9262.chunk.css",
+    "static/js/main.8fe1cd50.chunk.js"
   ]
 }
