@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import KeyboardLeft from "../images/keyLeft.svg";
-import KeyboardRight from "../images/keyRight.svg";
-import KeyboardUp from "../images/keyUp.svg";
-import KeyboardDown from "../images/keyDown.svg";
+import Keyboard37 from "../images/keyLeft.svg";
+import Keyboard39 from "../images/keyRight.svg";
+import Keyboard38 from "../images/keyUp.svg";
+import Keyboard40 from "../images/keyDown.svg";
 
 const StyledKeyGroup = styled.div`
   text-align: center;
@@ -36,29 +36,28 @@ const KeyboardMobile = ({
     onTouchRelease({ keyCode: keyCode });
   };
 
+  const renderKeyBoard = () => {
+    const keys = [
+      { code: 37, image: Keyboard37 },
+      { code: 38, image: Keyboard38 },
+      { code: 39, image: Keyboard39 },
+      { code: 40, image: Keyboard40 }
+    ];
+
+    return keys.map(key => (
+      <StyledKey
+        key={key.code}
+        src={key.image}
+        onTouchStart={e => setMove(e, key.code)}
+        onTouchEnd={e => setDrop(e, key.code)}
+      />
+    ));
+  };
+
   return (
     <div className="keyboard__wrapper">
       <StyledKeyGroup className="keyboard__keys">
-        <StyledKey
-          src={KeyboardLeft}
-          onTouchStart={e => setMove(e, 37)}
-          onTouchEnd={e => setDrop(e, 37)}
-        />
-        <StyledKey
-          src={KeyboardUp}
-          onTouchStart={e => setMove(e, 38)}
-          onTouchEnd={e => setDrop(e, 38)}
-        />
-        <StyledKey
-          src={KeyboardDown}
-          onTouchStart={e => setMove(e, 40)}
-          onTouchEnd={e => setDrop(e, 40)}
-        />
-        <StyledKey
-          src={KeyboardRight}
-          onTouchStart={e => setMove(e, 39)}
-          onMouseUp={e => setDrop(e, 39)}
-        />
+        {renderKeyBoard()}
       </StyledKeyGroup>
     </div>
   );
