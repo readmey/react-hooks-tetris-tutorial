@@ -12,7 +12,7 @@ const StyledKeyGroup = styled.div`
 
 const StyledKey = styled.img`
   margin-left: 10px;
-  width: 45px;
+  width: 55px;
 
   &:first-child {
     margin-left: 0;
