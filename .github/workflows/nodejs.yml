@@ -21,8 +21,8 @@ jobs:
         npm run-script build
 
     - name: Deploy
-      uses: readmey/github-pages-deploy-action@releases/v3
-      with:
+      run: npm run deploy
+      env:
         REACT_APP_DEV_API_KEY: ${{ secrets.REACT_APP_DEV_API_KEY }}
         REACT_APP_DEV_AUTH_DOMAIN: ${{ secrets.REACT_APP_DEV_AUTH_DOMAIN }}
         REACT_APP_DEV_DATABASE_URL: ${{ secrets.REACT_APP_DEV_DATABASE_URL }}
