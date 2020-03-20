@@ -2,24 +2,23 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  box-sizing: border-box;
-  padding: 25px 15px 20px;
-  min-height: 30px;
+  padding: 0.8rem;
+  height: 10px;
   width: 100%;
-  border-radius: 20px;
-  color: white;
+  border-radius: 15px;
   background: #000;
-  font-size: 1rem;
-  border: 4px solid #dbeaff;
-  font-family: Pixel, Arial, sans-serif;
+  border: 2px solid #dbeaff;
   outline: none;
+  color: white;
   cursor: pointer;
   margin-bottom: 1.5rem;
+  height: 40px;
+  font-family: Pixel, Arial, sans-serif;
+
   @media (max-width: 992px) {
-    padding: 0.5rem 0.25rem;
     font-size: 0.5rem;
     max-width: 85px;
-    height: 40px;
+    padding: 0;
   }
 `;
 
