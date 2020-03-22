@@ -8,7 +8,9 @@ Just use this tutorial as reference from [GameDev Tutorial] (https://www.youtube
 - Move the separated styles (StyledComponents) into the components file
 - Add the retro Tetris game sound (Tetris without the Tetris music is NOT Tetris :o)
 - Add own Tetrominos stylings (inspired by Lego)
-- 
+- Add responsive keyboard
+- Make game playable on mobile versions
+- Add Highscores
 
 Credits:
 - Robot Icon made by (https://www.flaticon.com/authors/smashicons)[Smashicons] from (https://www.flaticon.com/)[www.flaticon.com]
