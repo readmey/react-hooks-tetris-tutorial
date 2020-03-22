@@ -6,6 +6,8 @@ import Display from "../components/Display";
 import CustomButton from "../components/CustomButton";
 import ErrorBoundary from "../components/ErrorBoundary";
 import KeyboardMobile from "../components/KeyboardMobile";
+import Modal from "../components/Modal";
+import Highscore from "./Highscore";
 
 // Import Styles
 import {
@@ -108,7 +110,7 @@ const Tetris = () => {
   };
 
   const keyUp = ({ keyCode }) => {
-    if (!gameOver) {
+    if (!gameOver && !gamePaused) {
       if (keyCode === 40) {
         setDropTime(calcDropTime);
       }
@@ -116,8 +118,7 @@ const Tetris = () => {
   };
 
   const move = ({ keyCode }) => {
-    // if (!gameOver && !gamePaused) {
-    if (!gameOver) {
+    if (!gameOver && !gamePaused) {
       if (keyCode === 37) {
         movePlayer(-1);
       } else if (keyCode === 39) {
@@ -153,6 +154,9 @@ const Tetris = () => {
 
   return (
     <ErrorBoundary>
+      <Modal isGameOver={gameOver} isGameStart={gameStart}>
+        <Highscore isGameOver={gameOver} />
+      </Modal>
       <StyledTetrisWrapper
         tabIndex="0"
         onKeyDown={e => move(e)}
