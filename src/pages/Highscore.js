@@ -31,22 +31,22 @@ const Highscore = ({ isGameOver }) => {
   const [highScore, setHighScore] = useState(0);
   const [isError, setError] = useState(false);
 
-  // useEffect(() => {
-  //   async function fetchHighscore() {
-  //     try {
-  //       const data = await db.collection("Highscore").get();
-  //       setHighScore(
-  //         data.docs
-  //           .map(doc => ({ ...doc.data(), id: doc.id }))
-  //           .sort((a, b) => b.score - a.score)
-  //       );
-  //     } catch (error) {
-  //       console.log(error);
-  //       setError(true);
-  //     }
-  //   }
-  //   fetchHighscore();
-  // }, []);
+  useEffect(() => {
+    async function fetchHighscore() {
+      try {
+        const data = await db.collection("Highscore").get();
+        setHighScore(
+          data.docs
+            .map(doc => ({ ...doc.data(), id: doc.id }))
+            .sort((a, b) => b.score - a.score)
+        );
+      } catch (error) {
+        console.log(error);
+        setError(true);
+      }
+    }
+    fetchHighscore();
+  }, []);
 
   return (
     <React.Fragment>
