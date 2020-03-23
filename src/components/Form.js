@@ -52,10 +52,10 @@ const Form = () => {
   const addHighScore = (e, playerName) => {
     console.log(playerName);
     e.preventDefault();
-    db.collection("Highscore").add({
-      name: playerName,
-      score: score
-    });
+    // db.collection("Highscore").add({
+    //   name: playerName,
+    //   score: score
+    // });
   };
 
   return (
