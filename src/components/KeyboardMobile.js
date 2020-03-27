@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import Keyboard37 from "../images/keyLeft.svg";
 import Keyboard39 from "../images/keyRight.svg";
@@ -61,6 +62,12 @@ const KeyboardMobile = ({
       </StyledKeyGroup>
     </div>
   );
+};
+
+KeyboardMobile.propTypes = {
+  setCurrentKeyCode: PropTypes.func.isRequired,
+  setTouchStart: PropTypes.func.isRequired,
+  onTouchRelease: PropTypes.func.isRequired
 };
 
 export default KeyboardMobile;

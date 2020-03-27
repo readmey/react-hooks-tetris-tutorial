@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import axiosInstance from "../api/config";
 import styled from "styled-components";
 
@@ -95,6 +96,12 @@ const Form = ({ updateHighscore, highscore, score }) => {
       </form>
     </React.Fragment>
   );
+};
+
+Form.propTypes = {
+  updateHighscore: PropTypes.func.isRequired,
+  highScore: PropTypes.arrayOf(PropTypes.object),
+  score: PropTypes.number.isRequired
 };
 
 export default Form;

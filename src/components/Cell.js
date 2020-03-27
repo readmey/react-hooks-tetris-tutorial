@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import { TETROMINOS } from "../helpers/tetrominos";
 
@@ -17,6 +18,10 @@ const Cell = ({ type }) => (
     bgImage={TETROMINOS[type].bgImage}
   />
 );
+
+Cell.propTypes = {
+  type: PropTypes.oneOf([0, "I", "J", "L", "O", "S", "T", "Z"])
+};
 
 export default React.memo(Cell);
 // React.memo only re-render the changed cells

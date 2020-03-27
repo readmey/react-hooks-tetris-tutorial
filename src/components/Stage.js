@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import Cell from "./Cell";
 
@@ -30,5 +31,9 @@ const Stage = ({ stage }) => (
     {stage.map(row => row.map((cell, x) => <Cell key={x} type={cell[0]} />))}
   </StyledStage>
 );
+
+Stage.propTypes = {
+  stage: PropTypes.arrayOf(PropTypes.array).isRequired
+};
 
 export default Stage;

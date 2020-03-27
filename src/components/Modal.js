@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledModal = styled.div`
@@ -49,6 +50,11 @@ const Modal = ({ children, isGameOver }) => {
       {children}
     </StyledModal>
   ) : null;
+};
+
+Modal.propTypes = {
+  isGameover: PropTypes.bool,
+  children: PropTypes.element.isRequired
 };
 
 export default Modal;

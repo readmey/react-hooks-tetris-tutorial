@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import axiosInstance from "../api/config";
 
 import styled from "styled-components";
@@ -71,6 +72,10 @@ const Highscore = ({ score }) => {
       </StyledList>
     </React.Fragment>
   );
+};
+
+Highscore.propTypes = {
+  score: PropTypes.number
 };
 
 export default Highscore;
