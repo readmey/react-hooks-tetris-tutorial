@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import firebase from "../firebase/config.js";
-import { useGameStatus } from "../hooks/useGameStatus";
-
+import axiosInstance from "../api/config";
 import styled from "styled-components";
 
 const StyledInput = styled.input`
@@ -38,11 +36,13 @@ const StyledButton = styled.button`
   }
 `;
 
-const db = firebase.firestore();
+const StyledErrorMessage = styled.h5`
+  color: red;
+`;
 
-const Form = () => {
+const Form = ({ updateHighscore, highscore, score }) => {
   const [playerName, setPlayerName] = useState("");
-  const [score] = useGameStatus();
+  const [isError, setError] = useState(false);
 
   const handleChange = e => {
     e.preventDefault();
@@ -50,30 +50,50 @@ const Form = () => {
   };
 
   const addHighScore = (e, playerName) => {
-    console.log(playerName);
     e.preventDefault();
-    // db.collection("Highscore").add({
-    //   name: playerName,
-    //   score: score
-    // });
+    const playerExists = highscore.filter(e => e.name === playerName);
+    try {
+      if (playerExists.length === 0) {
+        axiosInstance.post("/highscore", {
+          "name": playerName,
+          "score": score
+        });
+      } else {
+        const id = playerExists[0]._id;
+        axiosInstance.put(`/highscore/${id}`, {
+          "name": playerName,
+          "score": score
+        });
+      }
+      updateHighscore();
+    } catch (error) {
+      setError(true);
+    }
   };
 
   return (
-    <form onSubmit={e => addHighScore(e, playerName)}>
-      <StyledInput
-        value={playerName}
-        onChange={e => handleChange(e)}
-        placeholder="Your name"
-        className={!playerName ? "disabled" : null}
-      />
-      <StyledButton
-        type="submit"
-        onClick={e => addHighScore(e, playerName)}
-        disabled={!playerName ? true : false}
-      >
-        Submit
-      </StyledButton>
-    </form>
+    <React.Fragment>
+      {isError && (
+        <StyledErrorMessage>
+          Adding to highscore is not working
+        </StyledErrorMessage>
+      )}
+      <form onSubmit={e => addHighScore(e, playerName)}>
+        <StyledInput
+          value={playerName}
+          onChange={e => handleChange(e)}
+          placeholder="Your name"
+          className={!playerName ? "disabled" : null}
+        />
+        <StyledButton
+          type="submit"
+          onClick={e => addHighScore(e, playerName)}
+          disabled={!playerName ? true : false}
+        >
+          Submit
+        </StyledButton>
+      </form>
+    </React.Fragment>
   );
 };
 
