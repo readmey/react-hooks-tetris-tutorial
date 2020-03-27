@@ -154,9 +154,11 @@ const Tetris = () => {
 
   return (
     <ErrorBoundary>
-      <Modal isGameOver={gameOver} isGameStart={gameStart}>
-        <Highscore isGameOver={gameOver} />
-      </Modal>
+      {gameOver ? (
+        <Modal isGameOver={gameOver} isGameStart={gameStart}>
+          <Highscore isGameOver={gameOver} score={score} />
+        </Modal>
+      ) : null}
       <StyledTetrisWrapper
         tabIndex="0"
         onKeyDown={e => move(e)}

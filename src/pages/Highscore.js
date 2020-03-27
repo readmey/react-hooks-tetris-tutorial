@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import firebase from "../firebase/config.js";
+import axiosInstance from "../api/config";
 
 import styled from "styled-components";
 import iconFirstPlace from "../images/icons/crown.svg";
@@ -25,39 +25,38 @@ const StyledTitle = styled.p`
   display: inline-block;
 `;
 
-const db = firebase.firestore();
-
-const Highscore = ({ isGameOver }) => {
+const Highscore = ({ score }) => {
   const [highScore, setHighScore] = useState(0);
   const [isError, setError] = useState(false);
 
-  useEffect(() => {
-    async function fetchHighscore() {
-      try {
-        const data = await db.collection("Highscore").get();
-        setHighScore(
-          data.docs
-            .map(doc => ({ ...doc.data(), id: doc.id }))
-            .sort((a, b) => b.score - a.score)
-        );
-      } catch (error) {
-        console.log(error);
-        setError(true);
-      }
+  async function fetchHighscore() {
+    try {
+      await axiosInstance.get("/highscore").then(result => {
+        const sortedData = result.data.sort((a, b) => b.score - a.score);
+        setHighScore(sortedData);
+      });
+    } catch (error) {
+      setError(true);
     }
+  }
+
+  useEffect(() => {
     fetchHighscore();
   }, []);
 
   return (
     <React.Fragment>
       <h3>Highscore List: </h3>
-
-      {isGameOver && <Form />}
       {isError && <h2>No highscore score list available </h2>}
+      <Form
+        updateHighscore={fetchHighscore}
+        highscore={highScore}
+        score={score}
+      />
       <StyledList>
         {highScore.length > 0 &&
           highScore.map((item, index) => (
-            <StyledListItem key={item.id}>
+            <StyledListItem key={item._id}>
               {index === 0 && (
                 <img width="20px" src={iconFirstPlace} alt="crown icon" />
               )}
