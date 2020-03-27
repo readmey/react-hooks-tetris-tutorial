@@ -58,7 +58,7 @@ const Highscore = ({ score }) => {
   const renderScores = filterHighscore => {
     const filteredItems =
       highScore.length > 0 &&
-      highScore.filter(e => (filterHighscore ? e.isHighscore : e));
+      highScore.filter(e => (filterHighscore ? e.isHighscore : !e.isHighscore));
 
     return (
       filteredItems.length > 0 &&
