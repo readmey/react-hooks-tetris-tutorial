@@ -16,7 +16,7 @@ const StyledModal = styled.div`
   left: 50%;
 
   @media (min-width: 992px) {
-    max-width: 50vw;
+    max-width: 80vw;
     padding: 2rem;
   }
 `;

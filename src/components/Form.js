@@ -44,29 +44,38 @@ const StyledErrorMessage = styled.h5`
 const Form = ({ updateHighscore, highscore, score }) => {
   const [playerName, setPlayerName] = useState("");
   const [isError, setError] = useState(false);
+  const minScore = 1000;
 
   const handleChange = e => {
     e.preventDefault();
     setPlayerName(e.target.value);
   };
 
-  const addHighScore = (e, playerName) => {
-    e.preventDefault();
+  const achievedMinScore = score >= minScore ? true : false;
+
+  const addHighscore = () => {
     const playerExists = highscore.filter(e => e.name === playerName);
+    if (playerExists.length === 0) {
+      axiosInstance.post("/highscore", {
+        "name": playerName,
+        "score": score,
+        "isHighscore": achievedMinScore
+      });
+    } else {
+      const id = playerExists[0]._id;
+      axiosInstance.put(`/highscore/${id}`, {
+        "name": playerName,
+        "score": score,
+        "isHighscore": achievedMinScore
+      });
+    }
+    updateHighscore();
+  };
+
+  const setHighScore = e => {
+    e.preventDefault();
     try {
-      if (playerExists.length === 0) {
-        axiosInstance.post("/highscore", {
-          "name": playerName,
-          "score": score
-        });
-      } else {
-        const id = playerExists[0]._id;
-        axiosInstance.put(`/highscore/${id}`, {
-          "name": playerName,
-          "score": score
-        });
-      }
-      updateHighscore();
+      addHighscore();
     } catch (error) {
       setError(true);
     }
@@ -79,7 +88,7 @@ const Form = ({ updateHighscore, highscore, score }) => {
           Adding to highscore is not working
         </StyledErrorMessage>
       )}
-      <form onSubmit={e => addHighScore(e, playerName)}>
+      <form onSubmit={e => setHighScore(e)}>
         <StyledInput
           value={playerName}
           onChange={e => handleChange(e)}
@@ -88,7 +97,7 @@ const Form = ({ updateHighscore, highscore, score }) => {
         />
         <StyledButton
           type="submit"
-          onClick={e => addHighScore(e, playerName)}
+          onClick={e => setHighScore(e)}
           disabled={!playerName ? true : false}
         >
           Submit

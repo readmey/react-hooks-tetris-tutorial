@@ -7,7 +7,7 @@ import CustomButton from "../components/CustomButton";
 import ErrorBoundary from "../components/ErrorBoundary";
 import KeyboardMobile from "../components/KeyboardMobile";
 import Modal from "../components/Modal";
-import Highscore from "./Highscore";
+import Highscore from "../components/Highscore";
 
 // Import Styles
 import {
