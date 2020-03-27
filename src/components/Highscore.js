@@ -6,7 +6,17 @@ import styled from "styled-components";
 import iconFirstPlace from "../images/icons/crown.svg";
 import iconLastPlace from "../images/icons/poop.svg";
 
-import Form from "../components/Form";
+import Form from "./Form";
+
+const StyledHighscores = styled.div`
+  @media (min-width: 992px) {
+    display: flex;
+  }
+`;
+
+const StyledListWrapper = styled.div`
+  width: 50%;
+`;
 
 const StyledList = styled.ol`
   display: grid;
@@ -45,31 +55,47 @@ const Highscore = ({ score }) => {
     fetchHighscore();
   }, []);
 
+  const renderScores = filterHighscore => {
+    const filteredItems =
+      highScore.length > 0 &&
+      highScore.filter(e => (filterHighscore ? e.isHighscore : e));
+
+    return (
+      filteredItems.length > 0 &&
+      filteredItems.map((item, index) => (
+        <StyledListItem key={item._id}>
+          {index === 0 && (
+            <img width="20px" src={iconFirstPlace} alt="crown icon" />
+          )}
+          {index === filteredItems.length - 1 && (
+            <img width="25px" src={iconLastPlace} alt="poop icon" />
+          )}
+          <StyledTitle>
+            {item.name}: {item.score}
+          </StyledTitle>
+        </StyledListItem>
+      ))
+    );
+  };
+
   return (
     <React.Fragment>
-      <h3>Highscore List: </h3>
       {isError && <h2>No highscore score list available </h2>}
       <Form
         updateHighscore={fetchHighscore}
         highscore={highScore}
         score={score}
       />
-      <StyledList>
-        {highScore.length > 0 &&
-          highScore.map((item, index) => (
-            <StyledListItem key={item._id}>
-              {index === 0 && (
-                <img width="20px" src={iconFirstPlace} alt="crown icon" />
-              )}
-              {index === highScore.length - 1 && (
-                <img width="25px" src={iconLastPlace} alt="poop icon" />
-              )}
-              <StyledTitle>
-                {item.name}: {item.score}
-              </StyledTitle>
-            </StyledListItem>
-          ))}
-      </StyledList>
+      <StyledHighscores>
+        <StyledListWrapper>
+          <h3>Hall Of FAME: </h3>
+          <StyledList>{renderScores(true)}</StyledList>
+        </StyledListWrapper>
+        <StyledListWrapper>
+          <h3>Hall Of SHAME: </h3>
+          <StyledList>{renderScores(false)}</StyledList>
+        </StyledListWrapper>
+      </StyledHighscores>
     </React.Fragment>
   );
 };
