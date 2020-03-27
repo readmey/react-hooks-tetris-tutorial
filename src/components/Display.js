@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledDisplay = styled.div`
@@ -18,5 +19,10 @@ const StyledDisplay = styled.div`
 const Display = ({ gameOver, text }) => (
   <StyledDisplay gameOver={gameOver}>{text}</StyledDisplay>
 );
+
+Display.propTypes = {
+  gameOver: PropTypes.bool,
+  text: PropTypes.string
+};
 
 export default Display;

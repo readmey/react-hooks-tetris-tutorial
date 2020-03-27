@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -25,5 +26,10 @@ const StyledButton = styled.button`
 const CustomButton = ({ children, callback }) => (
   <StyledButton onClick={callback}>{children}</StyledButton>
 );
+
+CustomButton.propTypes = {
+  callback: PropTypes.func,
+  children: PropTypes.string
+};
 
 export default CustomButton;
