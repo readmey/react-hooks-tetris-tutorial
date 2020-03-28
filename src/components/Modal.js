@@ -8,7 +8,7 @@ const StyledModal = styled.div`
   overflow-y: scroll;
   width: 100%;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 10px;

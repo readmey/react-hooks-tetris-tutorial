@@ -5,17 +5,22 @@ import styled from "styled-components";
 
 const StyledInput = styled.input`
   width: 100%;
-  max-width: 200px;
+  max-width: calc(100% - 120px);
   height: 27px;
   background-color: transparent;
   border: none;
   border-bottom: 2px solid darkgreen;
   border-top: 2px solid darkgreen;
-  margin-bottom: 2rem;
+  margin: 2.5rem 0 0;
   outline: none;
 
   &.disabled {
     border-color: grey;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 50%;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -92,7 +97,7 @@ const Form = ({ updateHighscore, highscore, score }) => {
         <StyledInput
           value={playerName}
           onChange={e => handleChange(e)}
-          placeholder="Your name"
+          placeholder="Type in your name and see if where you will appear"
           className={!playerName ? "disabled" : null}
         />
         <StyledButton
