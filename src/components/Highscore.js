@@ -15,15 +15,16 @@ const StyledHighscores = styled.div`
 `;
 
 const StyledListWrapper = styled.div`
-  width: 50%;
+  padding: 1rem;
+  border-bottom: 1px dashed black;
+
+  @media (min-width: 992px) {
+    width: 50%;
+    border: 1px dashed black;
+  }
 `;
 
-const StyledList = styled.ol`
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-columns: calc(100% / 2 - 5px) calc(100% / 2 - 5px);
-  grid-column-gap: 10px;
-`;
+const StyledList = styled.ol``;
 
 const StyledListItem = styled.li`
   font-size: 14px;

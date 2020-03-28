@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  padding: 0.8rem;
-  height: 10px;
   width: 100%;
   border-radius: 15px;
   background: #000;
@@ -13,8 +11,10 @@ const StyledButton = styled.button`
   color: white;
   cursor: pointer;
   margin-bottom: 1.5rem;
-  height: 40px;
+  height: 45px;
   font-family: Pixel, Arial, sans-serif;
+  font-size: 1rem;
+  padding: 1rem;
 
   @media (max-width: 992px) {
     font-size: 0.5rem;
