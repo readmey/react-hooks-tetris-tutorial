@@ -13,13 +13,13 @@ const StyledButton = styled.button`
   margin-bottom: 1.5rem;
   height: 45px;
   font-family: Pixel, Arial, sans-serif;
-  font-size: 1rem;
-  padding: 1rem;
-
-  @media (max-width: 992px) {
-    font-size: 0.5rem;
-    max-width: 85px;
-    padding: 0;
+  font-size: 0.5rem;
+  max-width: 85px;
+  padding: 0;
+  @media (min-width: 992px) {
+    font-size: 1rem;
+    padding: 1rem;
+    max-width: 100%;
   }
 `;
 

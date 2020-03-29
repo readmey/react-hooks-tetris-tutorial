@@ -1,6 +1,8 @@
 # React-Hooks-Tetris-Tutorial
 Building a Tetris game with React to test new hooks feature and playing around. Who does not like TETRIS? The good old times with my Gameboy Color <3 :
 
+#### DEMO: [click here](https://readmey.github.io/react-hooks-tetris-tutorial/)
+
 Just use this tutorial as reference from [GameDev Tutorial] (https://www.youtube.com/watch?v=ZGOaCxX8HIU) and adapted following:
 
 - Rewrite StyledStartButton to have a CustomButton passing through props.children

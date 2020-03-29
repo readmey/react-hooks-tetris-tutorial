@@ -21,17 +21,17 @@ export const StyledTetris = styled.div`
 
   aside {
     width: 100%;
-    max-width: 200px;
-    display: block;
-    padding: 0 20px;
+    max-width: 100vw;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 auto;
     justify-content: center;
 
-    @media (max-width: 992px) {
-      max-width: 100vw;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
+    @media (min-width: 992px) {
+      max-width: 200px;
+      display: block;
+      padding: 0 20px;
     }
   }
 `;
