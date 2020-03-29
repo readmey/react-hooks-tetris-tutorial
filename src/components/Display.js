@@ -10,9 +10,11 @@ const StyledDisplay = styled.div`
   border-radius: 15px;
   color: ${props => (props.gameOver ? "red" : "#999")};
   background: #000;
-  @media (max-width: 992px) {
-    font-size: 0.6rem;
-    margin-right: 5px;
+  font-size: 0.6rem;
+  margin-right: 5px;
+  @media (min-width: 992px) {
+    font-size: 1rem;
+    margin-right: 0;
   }
 `;
 
