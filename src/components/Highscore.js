@@ -5,7 +5,7 @@ import axiosInstance from "../api/config";
 import styled from "styled-components";
 import iconFirstPlace from "../images/icons/crown.svg";
 import iconLastPlace from "../images/icons/poop.svg";
-
+import Loader from "../components/Loader";
 import Form from "./Form";
 
 const StyledHighscores = styled.div`
@@ -40,12 +40,15 @@ const StyledTitle = styled.p`
 const Highscore = ({ score }) => {
   const [highScore, setHighScore] = useState(0);
   const [isError, setError] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   async function fetchHighscore() {
     try {
+      setLoading(true);
       await axiosInstance.get("/highscore").then(result => {
         const sortedData = result.data.sort((a, b) => b.score - a.score);
         setHighScore(sortedData);
+        setLoading(false);
       });
     } catch (error) {
       setError(true);
@@ -61,21 +64,23 @@ const Highscore = ({ score }) => {
       highScore.length > 0 &&
       highScore.filter(e => (filterHighscore ? e.isHighscore : !e.isHighscore));
 
-    return (
+    return isLoading ? (
+      <Loader />
+    ) : (
       filteredItems.length > 0 &&
-      filteredItems.map((item, index) => (
-        <StyledListItem key={item._id}>
-          {index === 0 && (
-            <img width="20px" src={iconFirstPlace} alt="crown icon" />
-          )}
-          {index === filteredItems.length - 1 && (
-            <img width="25px" src={iconLastPlace} alt="poop icon" />
-          )}
-          <StyledTitle>
-            {item.name}: {item.score}
-          </StyledTitle>
-        </StyledListItem>
-      ))
+        filteredItems.map((item, index) => (
+          <StyledListItem key={item._id}>
+            {index === 0 && (
+              <img width="20px" src={iconFirstPlace} alt="crown icon" />
+            )}
+            {index === filteredItems.length - 1 && (
+              <img width="25px" src={iconLastPlace} alt="poop icon" />
+            )}
+            <StyledTitle>
+              {item.name}: {item.score}
+            </StyledTitle>
+          </StyledListItem>
+        ))
     );
   };
 
